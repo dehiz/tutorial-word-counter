@@ -7,12 +7,37 @@
 
 #include "WordCounter.hpp"
 
+#include <cstring>
+
+// ---------------------------------------------
 WordCounter::WordCounter() {
-    // TODO Auto-generated constructor stub
 
 }
 
+// ---------------------------------------------
+WordCounter::WordCounter(const string& iText) :
+    _text(iText) {
+
+}
+
+// ---------------------------------------------
+unsigned int WordCounter::count() {
+    unsigned int aCount = 0;
+    char *aWord = 0;
+    char aDelimiters[] = " :.\n";
+    char aText[_text.length() + 1];
+    strcpy(aText, _text.c_str());
+
+    aWord = strtok(aText, aDelimiters);
+    while (aWord) {
+        aCount++;
+        aWord = strtok(0, aDelimiters);
+    }
+    return aCount;
+}
+
+// ---------------------------------------------
 WordCounter::~WordCounter() {
-    // TODO Auto-generated destructor stub
+
 }
 
