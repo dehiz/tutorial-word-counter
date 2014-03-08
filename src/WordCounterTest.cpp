@@ -7,3 +7,4 @@
 
 #include "WordCounter.hpp"
 
+#include <gtest/gtest.h>
