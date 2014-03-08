@@ -24,7 +24,10 @@ WordCounter::WordCounter(const string& iText) :
 unsigned int WordCounter::count() {
     unsigned int aCount = 0;
     char *aWord = 0;
-    char aDelimiters[] = " :.\n";
+    char aDelimiters[] = " :.!\"#$%&'()*+,-/;<=>?@[]\\^_`{|}~\n\t\r";
+    // Cf. http://www.cplusplus.com/reference/cctype/
+    // for the list of characters
+
     char aText[_text.length() + 1];
     strcpy(aText, _text.c_str());
 
